@@ -1,0 +1,118 @@
+<view class="container">
+  <!-- 用户信息区 -->
+  <view class="user-section">
+    <view class="user-bg"></view>
+    <view class="user-content">
+      <view class="user-avatar-wrapper">
+        <image class="user-avatar" src="{{userInfo.avatar}}" mode="aspectFill"></image>
+      </view>
+      <view class="user-info">
+        <text class="user-nickname">{{userInfo.nickname}}</text>
+        <view class="user-phone">{{userInfo.phone}}</view>
+      </view>
+      <view class="settings-btn" bindtap="goToSettings">
+        <text>⚙️</text>
+      </view>
+    </view>
+    
+    <!-- 会员卡片 -->
+    <view class="vip-card">
+      <view class="vip-left">
+        <text class="vip-icon">{{currentVip.icon}}</text>
+        <view class="vip-info">
+          <text class="vip-name">{{currentVip.name}}</text>
+          <text class="vip-desc">享{{currentVip.discount === 1 ? '全价' : (1 - currentVip.discount) * 100 + '%折扣'}}</text>
+        </view>
+      </view>
+      <view class="vip-progress">
+        <view class="progress-text">
+          <text>成长值</text>
+          <text>{{userInfo.growthValue}}</text>
+        </view>
+        <view class="progress-bar">
+          <view class="progress-fill" style="width: {{(userInfo.growthValue / 8888) * 100}}%"></view>
+        </view>
+        <view class="progress-next">
+          <text>距离{{vipLevels[2].name}}还差{{8888 - userInfo.growthValue}}成长值</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 积分展示 -->
+  <view class="points-card">
+    <view class="points-item">
+      <text class="points-value">{{userInfo.points}}</text>
+      <text class="points-label">积分</text>
+    </view>
+    <view class="points-divider"></view>
+    <view class="points-item">
+      <text class="points-value">12</text>
+      <text class="points-label">优惠券</text>
+    </view>
+  </view>
+
+  <!-- 订单入口 -->
+  <view class="order-section">
+    <view class="section-header">
+      <text class="section-title">我的订单</text>
+    </view>
+    <view class="order-tabs">
+      <view class="order-tab" bindtap="goToOrders" data-status="pending">
+        <view class="tab-icon">💳</view>
+        <text class="tab-text">待付款</text>
+      </view>
+      <view class="order-tab" bindtap="goToOrders" data-status="paid">
+        <view class="tab-icon">🍺</view>
+        <text class="tab-text">待取酒</text>
+        <view class="tab-badge" wx:if="{{false}}">1</view>
+      </view>
+      <view class="order-tab" bindtap="goToOrders" data-status="completed">
+        <view class="tab-icon">✅</view>
+        <text class="tab-text">已完成</text>
+      </view>
+      <view class="order-tab" bindtap="goToOrders" data-status="cancelled">
+        <view class="tab-icon">❌</view>
+        <text class="tab-text">已取消</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 功能菜单 -->
+  <view class="menu-section">
+    <view class="menu-item" wx:for="{{menuItems}}" wx:key="id" bindtap="goToPage" data-id="{{item.id}}">
+      <view class="menu-left">
+        <text class="menu-icon">{{item.icon}}</text>
+        <text class="menu-name">{{item.name}}</text>
+      </view>
+      <view class="menu-right">
+        <text class="menu-badge" wx:if="{{item.badge}}">{{item.badge}}</text>
+        <text class="menu-arrow">›</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 其他功能 -->
+  <view class="menu-section">
+    <view class="menu-item" wx:for="{{otherItems}}" wx:key="id" bindtap="goToPage" data-id="{{item.id}}">
+      <view class="menu-left">
+        <text class="menu-icon">{{item.icon}}</text>
+        <text class="menu-name">{{item.name}}</text>
+      </view>
+      <text class="menu-arrow">›</text>
+    </view>
+  </view>
+
+  <!-- 客服入口 -->
+  <view class="service-section">
+    <view class="service-btn" bindtap="contactService">
+      <text class="service-icon">📞</text>
+      <text class="service-text">联系客服</text>
+    </view>
+  </view>
+
+  <!-- 底部提示 -->
+  <view class="footer-tip">
+    <text>🍻 温馨提示：购买酒类商品需年满18周岁</text>
+  </view>
+</view>

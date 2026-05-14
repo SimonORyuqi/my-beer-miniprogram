@@ -1,0 +1,108 @@
+<view class="container" wx:if="{{product}}">
+  <!-- 商品图片 -->
+  <view class="product-image-wrapper">
+    <image class="product-image" src="{{product.image}}" mode="aspectFill"></image>
+    <view class="back-btn" bindtap="goBack">←</view>
+    <view class="style-tag">{{product.styleName}}</view>
+  </view>
+
+  <!-- 商品基本信息 -->
+  <view class="section basic-info">
+    <text class="product-name">{{product.name}}</text>
+    <text class="product-name-en">{{product.nameEn}}</text>
+    
+    <view class="product-meta">
+      <view class="meta-item">
+        <text class="meta-label">产地</text>
+        <text class="meta-value">{{product.origin}}</text>
+      </view>
+      <view class="meta-item">
+        <text class="meta-label">酒厂</text>
+        <text class="meta-value">{{product.brewery}}</text>
+      </view>
+    </view>
+
+    <view class="product-stats">
+      <view class="stat-item">
+        <text class="stat-value">{{product.abv}}%</text>
+        <text class="stat-label">ABV酒精度</text>
+      </view>
+      <view class="stat-item">
+        <text class="stat-value">{{product.ibu}}</text>
+        <text class="stat-label">IBU苦度</text>
+      </view>
+      <view class="stat-item">
+        <text class="stat-value">{{product.volume}}</text>
+        <text class="stat-label">容量</text>
+      </view>
+      <view class="stat-item">
+        <text class="stat-value">⭐ {{product.rating}}</text>
+        <text class="stat-label">{{product.reviews}}条评价</text>
+      </view>
+    </view>
+
+    <view class="price-row">
+      <text class="current-price">¥{{product.price}}</text>
+      <text class="original-price" wx:if="{{product.originalPrice > product.price}}">¥{{product.originalPrice}}</text>
+      <view class="stock-info">库存：{{product.stock}}</view>
+    </view>
+  </view>
+
+  <!-- 风味描述 -->
+  <view class="section flavor-section">
+    <text class="section-title">🍺 风味描述</text>
+    <view class="flavor-card">
+      <view class="flavor-item">
+        <text class="flavor-icon">👃</text>
+        <view class="flavor-content">
+          <text class="flavor-label">闻香</text>
+          <text class="flavor-text">{{product.flavor.aroma}}</text>
+        </view>
+      </view>
+      <view class="flavor-item">
+        <text class="flavor-icon">👅</text>
+        <view class="flavor-content">
+          <text class="flavor-label">口感</text>
+          <text class="flavor-text">{{product.flavor.taste}}</text>
+        </view>
+      </view>
+      <view class="flavor-item">
+        <text class="flavor-icon">😋</text>
+        <view class="flavor-content">
+          <text class="flavor-label">余韵</text>
+          <text class="flavor-text">{{product.flavor.finish}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 搭配建议 -->
+  <view class="section pairing-section">
+    <text class="section-title">🍽️ 搭配建议</text>
+    <view class="pairing-tags">
+      <text class="pairing-tag" wx:for="{{product.foodPairing}}" wx:key="index">{{item}}</text>
+    </view>
+  </view>
+
+  <!-- 商品简介 -->
+  <view class="section desc-section">
+    <text class="section-title">📝 商品简介</text>
+    <text class="desc-text">{{product.description}}</text>
+  </view>
+
+  <!-- 底部操作栏 -->
+  <view class="bottom-bar">
+    <view class="quantity-section">
+      <text class="qty-label">数量</text>
+      <view class="qty-controls">
+        <text class="qty-btn" bindtap="reduceQuantity">-</text>
+        <text class="qty-num">{{quantity}}</text>
+        <text class="qty-btn" bindtap="addQuantity">+</text>
+      </view>
+    </view>
+    <view class="action-btns">
+      <view class="add-cart-btn" bindtap="addToCart">加入购物车</view>
+      <view class="buy-btn" bindtap="buyNow">立即购买</view>
+    </view>
+  </view>
+</view>

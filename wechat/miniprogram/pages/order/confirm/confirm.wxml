@@ -1,0 +1,122 @@
+<view class="container">
+  <!-- 年龄验证弹窗 -->
+  <view class="age-modal" wx:if="{{showAgeModal}}">
+    <view class="age-content">
+      <view class="age-icon">🍺</view>
+      <text class="age-title">温馨提示</text>
+      <text class="age-text">购买酒类商品需年满18周岁</text>
+      <text class="age-text">请确认您已年满法定饮酒年龄</text>
+      <view class="age-btns">
+        <view class="age-btn cancel" bindtap="showAgeVerification">未满18岁</view>
+        <view class="age-btn confirm" bindtap="confirmAge">我已满18岁</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 取酒方式 -->
+  <view class="section pickup-section">
+    <text class="section-title">取酒方式</text>
+    <view class="pickup-methods">
+      <view 
+        class="pickup-method {{pickupMethod === 'self' ? 'active' : ''}}"
+        data-method="self"
+        bindtap="switchPickupMethod"
+      >
+        <text class="method-icon">🏪</text>
+        <text class="method-text">到店自取</text>
+        <text class="method-check" wx:if="{{pickupMethod === 'self'}}">✓</text>
+      </view>
+      <view 
+        class="pickup-method {{pickupMethod === 'delivery' ? 'active' : ''}}"
+        data-method="delivery"
+        bindtap="switchPickupMethod"
+      >
+        <text class="method-icon">🚴</text>
+        <text class="method-text">外卖配送</text>
+        <text class="method-check" wx:if="{{pickupMethod === 'delivery'}}">✓</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 门店信息 -->
+  <view class="section store-section">
+    <view class="store-header">
+      <text class="store-icon">📍</text>
+      <text class="store-name">{{storeInfo.name}}</text>
+    </view>
+    <view class="store-detail">
+      <text class="store-address">{{storeInfo.address}}</text>
+      <text class="store-hours">营业时间：{{storeInfo.hours}}</text>
+    </view>
+    <view class="store-phone">
+      <text>📞</text>
+      <text>{{storeInfo.phone}}</text>
+    </view>
+  </view>
+
+  <!-- 商品列表 -->
+  <view class="section items-section">
+    <text class="section-title">商品清单</text>
+    <view class="item-list">
+      <view class="order-item" wx:for="{{cartList}}" wx:key="id">
+        <image class="item-image" src="{{item.image}}" mode="aspectFill"></image>
+        <view class="item-info">
+          <text class="item-name">{{item.name}}</text>
+          <text class="item-style">{{item.styleName}} · {{item.volume}}</text>
+        </view>
+        <view class="item-right">
+          <text class="item-price">¥{{item.price}}</text>
+          <text class="item-qty">x{{item.quantity}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 备注 -->
+  <view class="section remark-section">
+    <text class="remark-label">备注</text>
+    <input 
+      class="remark-input"
+      placeholder="如：酒杯选择、加冰等特殊需求"
+      value="{{remark}}"
+      bindinput="inputRemark"
+    />
+  </view>
+
+  <!-- 价格明细 -->
+  <view class="section price-section">
+    <view class="price-row">
+      <text class="price-label">商品总价</text>
+      <text class="price-value">¥{{totalPrice}}</text>
+    </view>
+    <view class="price-row discount" wx:if="{{discount > 0}}">
+      <text class="price-label">会员折扣</text>
+      <text class="price-value">-¥{{discount}}</text>
+    </view>
+    <view class="price-row delivery" wx:if="{{pickupMethod === 'delivery'}}">
+      <text class="price-label">配送费</text>
+      <text class="price-value">¥5</text>
+    </view>
+    <view class="divider"></view>
+    <view class="price-row total">
+      <text class="price-label">实付金额</text>
+      <text class="total-price">¥{{pickupMethod === 'delivery' ? finalPrice + 5 : finalPrice}}</text>
+    </view>
+  </view>
+
+  <!-- 温馨提示 -->
+  <view class="tips">
+    <text class="tips-text">🍻 购买酒类商品需年满18周岁</text>
+  </view>
+
+  <!-- 底部提交栏 -->
+  <view class="submit-bar">
+    <view class="submit-price">
+      <text class="submit-label">合计：</text>
+      <text class="submit-money">¥{{pickupMethod === 'delivery' ? finalPrice + 5 : finalPrice}}</text>
+    </view>
+    <view class="submit-btn" bindtap="submitOrder">
+      提交订单
+    </view>
+  </view>
+</view>

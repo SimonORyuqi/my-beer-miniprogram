@@ -1,0 +1,14 @@
+---
+description: 
+alwaysApply: true
+enabled: true
+updatedAt: 2026-05-14T03:36:14.904Z
+provider: 
+---
+
+#项目架构
+本项目是一个包含前后端的商城点精酿小程序，核心功能是浏览商品，进行下单
+-admin 系统的后台管理系统，架构为element-ui+typescript
+-wechat 小程序端，使用小程序的原生语言
+#全局规则
+使用cloudbase 作为后端服务
