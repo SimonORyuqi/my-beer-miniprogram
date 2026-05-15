@@ -1,0 +1,504 @@
+/* pages/vip/recharge/recharge.wxss - 会员充值页面样式 */
+
+.container {
+  min-height: 100vh;
+  background: #FFF8F0;
+  padding: 24rpx;
+  padding-bottom: 120rpx;
+}
+
+/* 通用卡片样式 */
+.card {
+  background: #FFFFFF;
+  border-radius: 16rpx;
+  padding: 32rpx;
+  box-shadow: 0 4rpx 20rpx rgba(139, 69, 19, 0.08);
+  margin-bottom: 24rpx;
+}
+
+/* 账户余额卡片 */
+.balance-card {
+  background: linear-gradient(135deg, #333333 0%, #4A3728 100%);
+  color: #FFFFFF;
+}
+
+.balance-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+.balance-label {
+  font-size: 28rpx;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.header-btns {
+  display: flex;
+  gap: 16rpx;
+}
+
+.records-btn {
+  display: flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 10rpx 20rpx;
+  border-radius: 30rpx;
+}
+
+.records-btn:active {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.records-icon {
+  font-size: 24rpx;
+  margin-right: 8rpx;
+}
+
+.records-text {
+  font-size: 24rpx;
+  color: #FFFFFF;
+}
+
+.balance-amount {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+}
+
+.balance-amount .amount-yen {
+  font-size: 36rpx;
+  color: #D4A017;
+  margin-right: 4rpx;
+}
+
+.balance-amount .amount-value {
+  font-size: 72rpx;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+
+/* 充值套餐区 */
+.recharge-section {
+  margin-bottom: 32rpx;
+}
+
+.section-title {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 20rpx;
+}
+
+.recharge-packages {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.package-item {
+  background: #FFFFFF;
+  border-radius: 16rpx;
+  padding: 28rpx 32rpx;
+  display: flex;
+  align-items: center;
+  position: relative;
+  border: 2rpx solid #E8E0D8;
+  transition: all 0.2s ease;
+}
+
+.package-item:active {
+  opacity: 0.8;
+}
+
+.package-item.selected {
+  border-color: #D4A017;
+  background: #FFFBF0;
+}
+
+.package-amount {
+  display: flex;
+  align-items: baseline;
+  margin-right: 24rpx;
+}
+
+.amount-yen {
+  font-size: 28rpx;
+  color: #E85A4F;
+  font-weight: bold;
+}
+
+.amount-value {
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #E85A4F;
+}
+
+.package-bonus {
+  flex: 1;
+}
+
+.bonus-text {
+  font-size: 26rpx;
+  color: #4CAF50;
+  font-weight: 500;
+}
+
+.package-growth {
+  margin-left: auto;
+}
+
+.growth-text {
+  font-size: 24rpx;
+  color: #D4A017;
+  background: #FFF8F0;
+  padding: 8rpx 16rpx;
+  border-radius: 20rpx;
+}
+
+.package-selected-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 48rpx;
+  height: 48rpx;
+  background: #D4A017;
+  border-radius: 0 16rpx 0 16rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24rpx;
+  color: #FFFFFF;
+  font-weight: bold;
+}
+
+/* 充值按钮区域 */
+.recharge-action {
+  background: #FFFFFF;
+  border-radius: 16rpx;
+  padding: 24rpx 32rpx;
+  margin-bottom: 24rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  box-shadow: 0 -4rpx 20rpx rgba(0, 0, 0, 0.05);
+}
+
+.recharge-summary {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  margin-bottom: 20rpx;
+}
+
+.summary-label {
+  font-size: 26rpx;
+  color: #666666;
+  margin-right: 12rpx;
+}
+
+.summary-value {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #E85A4F;
+}
+
+.summary-unit {
+  font-size: 26rpx;
+  color: #E85A4F;
+  margin-left: 4rpx;
+}
+
+.recharge-btn {
+  background: #D4A017;
+  border-radius: 12rpx;
+  height: 88rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.recharge-btn:active {
+  background: #BF8E14;
+}
+
+.recharge-btn.disabled {
+  background: #CCCCCC;
+}
+
+.btn-text {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+
+/* 温馨提示 */
+.tips {
+  text-align: center;
+  padding: 24rpx;
+}
+
+.tips-text {
+  display: block;
+  font-size: 22rpx;
+  color: #999999;
+  margin-bottom: 8rpx;
+}
+
+.tips-desc {
+  display: block;
+  font-size: 20rpx;
+  color: #CCCCCC;
+}
+
+/* 年龄确认弹窗 */
+.age-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.age-modal.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.age-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.age-content {
+  position: relative;
+  width: 560rpx;
+  background: #FFFFFF;
+  border-radius: 24rpx;
+  padding: 48rpx 40rpx;
+  text-align: center;
+}
+
+.age-icon {
+  font-size: 80rpx;
+  margin-bottom: 24rpx;
+}
+
+.age-title {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 16rpx;
+}
+
+.age-desc {
+  font-size: 28rpx;
+  color: #666666;
+  margin-bottom: 12rpx;
+}
+
+.age-question {
+  font-size: 30rpx;
+  color: #333333;
+  font-weight: bold;
+  margin-bottom: 32rpx;
+}
+
+.age-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 16rpx;
+}
+
+.age-btn {
+  height: 88rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12rpx;
+  font-size: 30rpx;
+}
+
+.age-btn.confirm {
+  background: #D4A017;
+  color: #FFFFFF;
+}
+
+.age-btn.confirm:active {
+  background: #BF8E14;
+}
+
+.age-btn.cancel {
+  background: #F5F5F5;
+  color: #999999;
+}
+
+.age-btn.cancel:active {
+  background: #EEEEEE;
+}
+
+/* 充值成功弹窗 */
+.success-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.success-modal.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.success-mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.success-content {
+  position: relative;
+  width: 600rpx;
+  background: #FFFFFF;
+  border-radius: 24rpx;
+  padding: 48rpx 40rpx;
+  text-align: center;
+}
+
+.success-icon {
+  font-size: 100rpx;
+  margin-bottom: 16rpx;
+}
+
+.success-title {
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 32rpx;
+}
+
+.success-details {
+  background: #FFF8F0;
+  border-radius: 16rpx;
+  padding: 24rpx;
+  margin-bottom: 24rpx;
+}
+
+.detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12rpx 0;
+}
+
+.detail-row:not(:last-child) {
+  border-bottom: 1rpx solid #E8E0D8;
+}
+
+.detail-label {
+  font-size: 28rpx;
+  color: #666666;
+}
+
+.detail-value {
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #E85A4F;
+}
+
+.success-progress {
+  margin-bottom: 32rpx;
+}
+
+.progress-title {
+  display: block;
+  font-size: 26rpx;
+  color: #666666;
+  margin-bottom: 12rpx;
+}
+
+.progress-bar-wrap {
+  background: #F8F6F3;
+  border-radius: 12rpx;
+  padding: 16rpx;
+}
+
+.progress-bar {
+  height: 12rpx;
+  background: #E8E0D8;
+  border-radius: 6rpx;
+  overflow: hidden;
+  margin-bottom: 8rpx;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #D4A017, #F5C842);
+  border-radius: 6rpx;
+}
+
+.progress-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 22rpx;
+  color: #999999;
+}
+
+.success-btns {
+  display: flex;
+  gap: 20rpx;
+}
+
+.success-btn {
+  flex: 1;
+  height: 88rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12rpx;
+  font-size: 30rpx;
+}
+
+.success-btn.primary {
+  background: #D4A017;
+  color: #FFFFFF;
+}
+
+.success-btn.primary:active {
+  background: #BF8E14;
+}
+
+.success-btn.secondary {
+  background: #F5F5F5;
+  color: #666666;
+}
+
+.success-btn.secondary:active {
+  background: #EEEEEE;
+}

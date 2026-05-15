@@ -171,9 +171,8 @@ Page({
       })
       return
     }
-    wx.showToast({
-      title: '会员系统即将上线',
-      icon: 'none'
+    wx.navigateTo({
+      url: '/pages/vip/recharge/recharge'
     })
   },
 
