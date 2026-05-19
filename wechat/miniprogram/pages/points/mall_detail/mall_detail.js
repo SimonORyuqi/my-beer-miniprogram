@@ -109,4 +109,8 @@ Page({
     const second = date.getSeconds().toString().padStart(2, '0')
     return `${year}-${month}-${day} ${hour}:${minute}:${second}`
   }
+<<<<<<< HEAD
 })
+=======
+})
+>>>>>>> 17d4582 (feat: 确认订单页面功能完善)

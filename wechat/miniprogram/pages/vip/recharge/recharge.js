@@ -209,6 +209,17 @@ Page({
       rechargeRecords.push(record)
       wx.setStorageSync('rechargeRecords', rechargeRecords)
       
+      // 添加积分获得记录
+      const pointsRecords = wx.getStorageSync('pointsRecords') || []
+      pointsRecords.unshift({
+        id: 'pr_' + now.getTime(),
+        type: 'earn',
+        amount: packageItem.growth,
+        description: '充值获得',
+        createTime: `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}:${String(now.getSeconds()).padStart(2, '0')}`
+      })
+      wx.setStorageSync('pointsRecords', pointsRecords)
+      
       // 显示成功弹窗
       this.setData({
         showSuccessModal: true,

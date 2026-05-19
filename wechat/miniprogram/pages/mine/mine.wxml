@@ -21,7 +21,7 @@
         <text class="vip-icon">{{currentVip.icon}}</text>
         <view class="vip-info">
           <text class="vip-name">{{currentVip.name}}</text>
-          <text class="vip-desc">享{{currentVip.discount === 1 ? '全价' : (1 - currentVip.discount) * 100 + '%折扣'}}</text>
+          <text class="vip-desc">{{currentVip.benefit}}</text>
         </view>
       </view>
       <view class="vip-progress">

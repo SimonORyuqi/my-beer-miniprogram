@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#D4A017;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#BF8E14;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="200" height="200" rx="16" fill="url(#bg)"/>
+  <rect x="10" y="10" width="180" height="180" rx="12" fill="none" stroke="white" stroke-width="2" stroke-dasharray="8,4"/>
+  <text x="100" y="70" font-size="24" fill="white" text-anchor="middle" font-weight="bold">330ml</text>
+  <text x="100" y="100" font-size="20" fill="white" text-anchor="middle">→</text>
+  <text x="100" y="130" font-size="24" fill="white" text-anchor="middle" font-weight="bold">475ml</text>
+  <text x="100" y="170" font-size="14" fill="white" text-anchor="middle" opacity="0.8">升级券</text>
+</svg>

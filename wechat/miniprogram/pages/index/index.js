@@ -4,7 +4,12 @@ const mockData = require('../../utils/mockData.js')
 Page({
   data: {
     userInfo: null,
-    storeInfo: mockData.storeInfo,
+    storeInfo: {
+      name: '🍺 地酒精酿',
+      address: '郑州市二七区大学路与陇海路交叉口东北角',
+      phone: '010-12345678',
+      hours: '18:00 - 02:00'
+    },
     storeCollapsed: true,
     showLoginModal: false,
     tempNickname: '点击获取昵称',
@@ -156,9 +161,8 @@ Page({
       })
       return
     }
-    wx.showToast({
-      title: '积分商城即将上线',
-      icon: 'none'
+    wx.navigateTo({
+      url: '/pages/points/mall/mall'
     })
   },
 

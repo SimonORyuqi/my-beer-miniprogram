@@ -250,10 +250,10 @@ module.exports = {
 
   // 会员等级
   vipLevels: [
-    { id: 'beer_fan', name: '酒客', minScore: 0, maxScore: 1500, discount: 1, icon: '🍺' },
-    { id: 'beer_friend', name: '酒友', minScore: 1500, maxScore: 3000, discount: 0.98, icon: '🍻' },
-    { id: 'beer_lover', name: '酒徒', minScore: 3000, maxScore: 8888, discount: 0.95, icon: '🥃' },
-    { id: 'beer_god', name: '酒神', minScore: 8888, maxScore: 99999, discount: 0.9, icon: '👑' }
+    { id: 'beer_fan', name: '酒客', minScore: 0, maxScore: 1500, benefit: '无折扣', icon: '🍺' },
+    { id: 'beer_friend', name: '酒友', minScore: 1500, maxScore: 3000, benefit: '专属券', icon: '🍻' },
+    { id: 'beer_lover', name: '酒徒', minScore: 3000, maxScore: 8888, benefit: '专属券', icon: '🥃' },
+    { id: 'beer_god', name: '酒神', minScore: 8888, maxScore: 99999, benefit: '专属券', icon: '👑' }
   ],
 
   // 测试用户信息
@@ -334,23 +334,32 @@ module.exports = {
   },
 
   // 积分兑换商品数据
-  // 注意：优惠券图片需要替换为实际设计图片，当前使用占位图
   pointsProducts: [
     {
       id: 'p001',
       name: '330ml升级475ml券',
       type: '升级券',
       pointsCost: 1000,
-      image: '/images/products/beer1.png', // TODO: 替换为实际优惠券图片
-      description: '可将您购买的330ml啤酒免费升级为475ml'
+      image: '/images/products/coupon_upgrade.svg', // 使用升杯券专用图标
+      description: '可将您购买的330ml啤酒免费升级为475ml',
+      exchangeNotes: [
+        '积分兑换商品一经兑换成功，不予退回，请您确认后再兑换。',
+        '本券自兑换起生效，有效期7天，过期后即失效，不延期或补发。',
+        '本券不找零，不兑换现金，核销后即失效，不退换货，也不能与其他优惠同时使用'
+      ]
     },
     {
       id: 'p002',
       name: '买二送一券',
       type: '赠送券',
       pointsCost: 2000,
-      image: '/images/products/beer2.png', // TODO: 替换为实际优惠券图片
-      description: '购买任意两杯啤酒，免费赠送一杯'
+      image: '/images/products/coupon_buy2get1.svg', // 使用买二送一券专用图标
+      description: '购买任意两杯啤酒，免费赠送一杯',
+      exchangeNotes: [
+        '积分兑换商品一经兑换成功，不予退回，请您确认后再兑换。',
+        '本券自兑换起生效，有效期7天，过期后即失效，不延期或补发。',
+        '本券不找零，不兑换现金，核销后即失效，不退换货，也不能与其他优惠同时使用'
+      ]
     }
   ],
 
