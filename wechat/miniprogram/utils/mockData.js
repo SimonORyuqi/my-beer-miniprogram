@@ -331,5 +331,86 @@ module.exports = {
     address: '朝阳区三里屯酒吧街28号',
     phone: '010-12345678',
     hours: '10:00 - 02:00'
-  }
+  },
+
+  // 积分兑换商品数据
+  // 注意：优惠券图片需要替换为实际设计图片，当前使用占位图
+  pointsProducts: [
+    {
+      id: 'p001',
+      name: '330ml升级475ml券',
+      type: '升级券',
+      pointsCost: 1000,
+      image: '/images/products/beer1.png', // TODO: 替换为实际优惠券图片
+      description: '可将您购买的330ml啤酒免费升级为475ml'
+    },
+    {
+      id: 'p002',
+      name: '买二送一券',
+      type: '赠送券',
+      pointsCost: 2000,
+      image: '/images/products/beer2.png', // TODO: 替换为实际优惠券图片
+      description: '购买任意两杯啤酒，免费赠送一杯'
+    }
+  ],
+
+  // 积分明细记录数据
+  pointsRecords: [
+    {
+      id: 'pr001',
+      type: 'earn',
+      amount: 500,
+      description: '充值获得',
+      createTime: '2026-05-19 10:00:00'
+    },
+    {
+      id: 'pr002',
+      type: 'earn',
+      amount: 38,
+      description: '消费获得',
+      createTime: '2026-05-18 15:30:00'
+    },
+    {
+      id: 'pr003',
+      type: 'spend',
+      amount: 200,
+      description: '兑换满100减20优惠券',
+      createTime: '2026-05-17 12:00:00'
+    },
+    {
+      id: 'pr004',
+      type: 'earn',
+      amount: 100,
+      description: '签到获得',
+      createTime: '2026-05-16 08:00:00'
+    },
+    {
+      id: 'pr005',
+      type: 'expire',
+      amount: 50,
+      description: '积分过期',
+      createTime: '2026-05-15 23:59:59'
+    },
+    {
+      id: 'pr006',
+      type: 'earn',
+      amount: 200,
+      description: '评价获得',
+      createTime: '2026-05-14 20:15:00'
+    },
+    {
+      id: 'pr007',
+      type: 'spend',
+      amount: 150,
+      description: '兑换新品折扣券',
+      createTime: '2026-05-13 14:20:00'
+    },
+    {
+      id: 'pr008',
+      type: 'earn',
+      amount: 1000,
+      description: '首次充值奖励',
+      createTime: '2026-05-10 09:00:00'
+    }
+  ]
 }
