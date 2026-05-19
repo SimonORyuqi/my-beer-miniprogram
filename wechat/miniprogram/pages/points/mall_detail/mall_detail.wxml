@@ -1,0 +1,47 @@
+<view class="container">
+  <!-- 商品图片 -->
+  <view class="product-image-section">
+    <image 
+      class="product-image" 
+      src="{{product.image}}" 
+      mode="aspectFill"
+      lazy-load="true"
+    />
+  </view>
+
+  <!-- 商品信息 -->
+  <view class="product-info-section card">
+    <view class="product-header">
+      <text class="product-name">{{product.name}}</text>
+      <text class="product-type">{{product.type}}</text>
+    </view>
+    <view class="product-desc">{{product.description}}</view>
+    
+    <view class="points-cost">
+      <text class="cost-label">兑换所需积分:</text>
+      <text class="cost-value">{{product.pointsCost}}</text>
+      <text class="cost-unit">积分</text>
+    </view>
+  </view>
+
+  <!-- 兑换说明 -->
+  <view class="exchange-notes-section card">
+    <view class="section-title">兑换说明</view>
+    <view class="notes-list">
+      <view class="note-item" wx:for="{{product.exchangeNotes}}" wx:key="index">
+        <text class="note-text">{{item}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 兑换按钮 -->
+  <view class="bottom-bar">
+    <view 
+      class="exchange-btn {{userPoints >= product.pointsCost ? '' : 'disabled'}}"
+      bindtap="doExchange"
+    >
+      <text class="btn-text" wx:if="{{userPoints >= product.pointsCost}}">立即兑换</text>
+      <text class="btn-text" wx:else>积分不足</text>
+    </view>
+  </view>
+</view>

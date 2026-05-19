@@ -1,6 +1,9 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/points/mall/mall",
+    "pages/points/mall_detail/mall_detail",
+    "pages/points/detail/detail",
     "pages/vip/recharge/recharge",
     "pages/vip/records/records",
     "pages/vip/consume/consume",

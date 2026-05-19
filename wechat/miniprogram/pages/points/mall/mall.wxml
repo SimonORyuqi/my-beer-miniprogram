@@ -1,0 +1,71 @@
+<view class="container">
+  <!-- 积分余额卡片 -->
+  <view class="points-card card">
+    <view class="points-header">
+      <text class="points-label">当前积分</text>
+      <view class="points-detail-btn" bindtap="goToDetail">
+        <text class="detail-icon">📋</text>
+        <text class="detail-text">积分明细</text>
+        <text class="detail-arrow">›</text>
+      </view>
+    </view>
+    <view class="points-amount">
+      <text class="amount-value">{{userPoints}}</text>
+      <text class="amount-unit">分</text>
+    </view>
+  </view>
+
+  <!-- 兑换商品列表 -->
+  <view class="products-section">
+    <view class="section-title">积分兑换</view>
+    
+    <view class="products-list" wx:if="{{products.length > 0}}">
+      <view 
+        class="product-item card"
+        wx:for="{{products}}"
+        wx:key="id"
+        bindtap="viewProductDetail"
+        data-id="{{item.id}}"
+      >
+        <!-- 左侧商品图片 -->
+        <image 
+          class="product-image" 
+          src="{{item.image}}" 
+          mode="aspectFill"
+          lazy-load="true"
+        />
+        
+        <!-- 右侧商品信息 -->
+        <view class="product-info">
+          <view class="product-header">
+            <text class="product-name">{{item.name}}</text>
+            <text class="product-type">{{item.type}}</text>
+          </view>
+          <view class="product-desc">{{item.description}}</view>
+          
+          <view class="product-action">
+            <view class="points-cost">
+              <text class="cost-value">{{item.pointsCost}}</text>
+              <text class="cost-unit">积分</text>
+            </view>
+            <view 
+              class="exchange-btn {{userPoints >= item.pointsCost ? '' : 'disabled'}}"
+              catchtap="exchangeProduct"
+              data-id="{{item.id}}"
+            >
+              <text class="btn-text" wx:if="{{userPoints >= item.pointsCost}}">立即兑换</text>
+              <text class="btn-text" wx:else>积分不足</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 空状态 -->
+    <view class="empty-state" wx:if="{{products.length === 0}}">
+      <text class="empty-icon">🎁</text>
+      <text class="empty-text">暂无可用兑换商品~</text>
+      <text class="empty-desc">去看看其他精彩活动吧</text>
+    </view>
+  </view>
+</view>
