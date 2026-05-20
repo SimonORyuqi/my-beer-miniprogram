@@ -22,7 +22,14 @@ Page({
   },
 
   onShow() {
-    this.checkUserLogin()
+    // 检查是否需要显示登录弹窗（从"我的"页面切换过来）
+    const app = getApp()
+    if (app.globalData.needShowLoginModal) {
+      this.setData({ showLoginModal: true })
+      app.globalData.needShowLoginModal = false
+    } else {
+      this.checkUserLogin()
+    }
   },
 
   // 检查用户登录状态

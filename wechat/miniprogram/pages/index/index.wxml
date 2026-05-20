@@ -18,14 +18,16 @@
             <view class="member-id">NO.{{userInfo.memberId}}</view>
           </view>
         </view>
-        <view class="vip-badge" bindtap="goToVip">
-          <text class="vip-badge-icon">💎</text>
-          <text class="vip-badge-text">{{userInfo.vipName}}</text>
-          <text class="vip-badge-arrow">›</text>
+        <view class="vip-section">
+          <view class="vip-badge" bindtap="goToVip">
+            <text class="vip-badge-icon">💎</text>
+            <text class="vip-badge-text">{{userInfo.vipName}}</text>
+            <text class="vip-badge-arrow">›</text>
+          </view>
+          <view class="vip-progress-text" bindtap="goToVip">
+            <text>再消费{{userInfo.nextLevelAmount}}元升为{{userInfo.nextVipName}}</text>
+          </view>
         </view>
-      </view>
-      <view class="member-progress" bindtap="goToVip">
-        <text class="progress-text">再消费{{userInfo.nextLevelAmount}}元升为{{userInfo.nextVipName}}</text>
       </view>
 
       <!-- 功能入口 -->
@@ -62,8 +64,13 @@
     <!-- 门店折叠卡片 -->
     <view class="store-collapse-card card">
       <view class="store-collapse-header" bindtap="toggleStoreCollapse">
-        <text class="store-collapse-title">🍺 地酒精酿</text>
-        <text class="store-collapse-arrow {{storeCollapsed ? '' : 'expanded'}}">›</text>
+        <view class="store-collapse-left">
+          <text class="store-collapse-icon">🍺</text>
+          <text class="store-collapse-title">地酒精酿</text>
+        </view>
+        <view class="store-collapse-right">
+          <text class="store-collapse-arrow {{storeCollapsed ? '' : 'expanded'}}">›</text>
+        </view>
       </view>
       <view class="store-collapse-content {{storeCollapsed ? 'collapsed' : ''}}">
         <view class="store-details">

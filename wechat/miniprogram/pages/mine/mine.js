@@ -5,25 +5,37 @@ Page({
   data: {
     userInfo: mockData.userInfo,
     vipLevels: mockData.vipLevels,
-    currentVip: null,
-    menuItems: [
-      { id: 'favorites', icon: '❤️', name: '我的收藏', badge: '' },
-      { id: 'address', icon: '📍', name: '收货地址', badge: '' },
-      { id: 'coupon', icon: '🎫', name: '优惠券', badge: '2' },
-      { id: 'points', icon: '💰', name: '积分明细', badge: '' }
-    ],
-    otherItems: [
-      { id: 'help', icon: '❓', name: '帮助与反馈' },
-      { id: 'about', icon: 'ℹ️', name: '关于我们' }
-    ]
+    currentVip: null
   },
 
   onLoad() {
-    this.loadUserInfo()
+    this.checkUserLogin()
   },
 
   onShow() {
-    this.loadUserInfo()
+    // 每次显示页面时检查登录状态
+    const userInfo = wx.getStorageSync('userInfo')
+    if (!userInfo) {
+      this.checkUserLogin()
+    } else {
+      this.loadUserInfo()
+    }
+  },
+
+  // 检查用户是否已注册/登录
+  checkUserLogin() {
+    const userInfo = wx.getStorageSync('userInfo')
+    if (!userInfo) {
+      // 未注册，切换到首页并显示首页的注册界面
+      const app = getApp()
+      app.globalData.needShowLoginModal = true
+      wx.switchTab({
+        url: '/pages/index/index'
+      })
+    } else {
+      // 已注册，加载用户信息
+      this.loadUserInfo()
+    }
   },
 
   // 加载用户信息
@@ -47,25 +59,6 @@ Page({
     })
   },
 
-  // 通用跳转
-  goToPage(e) {
-    const id = e.currentTarget.dataset.id
-    const pages = {
-      favorites: '/pages/mine/favorites/favorites',
-      address: '/pages/mine/address/address',
-      coupon: '/pages/mine/coupon/coupon',
-      points: '/pages/mine/points/points',
-      help: '/pages/mine/help/help',
-      about: '/pages/mine/about/about'
-    }
-    
-    if (pages[id]) {
-      wx.showToast({
-        title: '功能开发中',
-        icon: 'none'
-      })
-    }
-  },
 
   // 联系客服
   contactService() {

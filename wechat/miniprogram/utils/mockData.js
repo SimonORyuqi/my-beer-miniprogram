@@ -250,10 +250,10 @@ module.exports = {
 
   // 会员等级
   vipLevels: [
-    { id: 'beer_fan', name: '酒客', minScore: 0, maxScore: 1500, benefit: '无折扣', icon: '🍺' },
-    { id: 'beer_friend', name: '酒友', minScore: 1500, maxScore: 3000, benefit: '专属券', icon: '🍻' },
-    { id: 'beer_lover', name: '酒徒', minScore: 3000, maxScore: 8888, benefit: '专属券', icon: '🥃' },
-    { id: 'beer_god', name: '酒神', minScore: 8888, maxScore: 99999, benefit: '专属券', icon: '👑' }
+    { id: 'vip1', name: 'VIP1', minScore: 0, maxScore: 1500, benefit: '无折扣', icon: '🍺' },
+    { id: 'vip2', name: 'VIP2', minScore: 1500, maxScore: 3000, benefit: '专属券', icon: '🍻' },
+    { id: 'vip3', name: 'VIP3', minScore: 3000, maxScore: 8888, benefit: '专属券', icon: '🥃' },
+    { id: 'vip4', name: 'VIP4', minScore: 8888, maxScore: 99999, benefit: '专属券', icon: '👑' }
   ],
 
   // 测试用户信息
@@ -261,13 +261,13 @@ module.exports = {
     avatar: '/images/avatar.png',
     nickname: '精酿爱好者',
     phone: '138****8888',
-    vipLevel: 'beer_friend',
-    vipName: '酒友',
+    vipLevel: 'vip2',
+    vipName: 'VIP2',
     points: 2680,
     growthValue: 2680,
-    memberId: '0890 0001 282',
+    memberId: 'DJ2026050001',
     nextLevelAmount: 320,
-    nextVipName: '酒徒'
+    nextVipName: 'VIP3'
   },
 
   // 测试订单数据

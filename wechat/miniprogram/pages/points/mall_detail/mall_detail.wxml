@@ -44,8 +44,4 @@
       <text class="btn-text" wx:else>积分不足</text>
     </view>
   </view>
-<<<<<<< HEAD
 </view>
-=======
-</view>
->>>>>>> 17d4582 (feat: 确认订单页面功能完善)

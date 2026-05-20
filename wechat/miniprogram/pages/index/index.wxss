@@ -106,14 +106,17 @@
   color: #FFFFFF;
 }
 
-.member-progress {
-  margin-bottom: 32rpx;
-  padding-left: 100rpx;
+.vip-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.progress-text {
-  font-size: 24rpx;
+.vip-progress-text {
+  font-size: 20rpx;
   color: #999999;
+  margin-top: 8rpx;
+  text-align: center;
 }
 
 .member-actions {
@@ -210,15 +213,30 @@
   background: rgba(0, 0, 0, 0.02);
 }
 
+.store-collapse-left {
+  display: flex;
+  align-items: center;
+}
+
+.store-collapse-icon {
+  font-size: 36rpx;
+  margin-right: 16rpx;
+}
+
 .store-collapse-title {
   font-size: 30rpx;
   font-weight: bold;
   color: #333333;
 }
 
+.store-collapse-right {
+  display: flex;
+  align-items: center;
+}
+
 .store-collapse-arrow {
-  font-size: 32rpx;
-  color: #999999;
+  font-size: 30rpx;
+  color: #CCCCCC;
   transition: transform 0.3s ease;
 }
 

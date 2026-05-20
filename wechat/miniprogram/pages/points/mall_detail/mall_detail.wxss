@@ -3,11 +3,7 @@
 .container {
   min-height: 100vh;
   background: #FFF8F0;
-<<<<<<< HEAD
-  padding-bottom: 120rpx;
-=======
   padding-bottom: 200rpx; /* 增加底部内边距，避免兑换按钮遮挡内容 */
->>>>>>> 17d4582 (feat: 确认订单页面功能完善)
 }
 
 /* 商品图片区域 */

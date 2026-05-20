@@ -226,61 +226,6 @@
   padding: 0 8rpx;
 }
 
-/* 功能菜单 */
-.menu-section {
-  background: #FFFFFF;
-  margin: 20rpx 32rpx;
-  border-radius: 16rpx;
-  overflow: hidden;
-  box-shadow: 0 2rpx 12rpx rgba(139, 69, 19, 0.08);
-}
-
-.menu-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 28rpx 24rpx;
-  border-bottom: 1rpx solid #F0EBE5;
-}
-
-.menu-item:last-child {
-  border-bottom: none;
-}
-
-.menu-left {
-  display: flex;
-  align-items: center;
-}
-
-.menu-icon {
-  font-size: 36rpx;
-  margin-right: 16rpx;
-}
-
-.menu-name {
-  font-size: 28rpx;
-  color: #333333;
-}
-
-.menu-right {
-  display: flex;
-  align-items: center;
-}
-
-.menu-badge {
-  background: #E85A4F;
-  color: #FFFFFF;
-  font-size: 20rpx;
-  padding: 4rpx 12rpx;
-  border-radius: 16rpx;
-  margin-right: 12rpx;
-}
-
-.menu-arrow {
-  font-size: 32rpx;
-  color: #CCCCCC;
-}
-
 /* 客服入口 */
 .service-section {
   padding: 20rpx 32rpx;

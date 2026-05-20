@@ -78,30 +78,6 @@
     </view>
   </view>
 
-  <!-- 功能菜单 -->
-  <view class="menu-section">
-    <view class="menu-item" wx:for="{{menuItems}}" wx:key="id" bindtap="goToPage" data-id="{{item.id}}">
-      <view class="menu-left">
-        <text class="menu-icon">{{item.icon}}</text>
-        <text class="menu-name">{{item.name}}</text>
-      </view>
-      <view class="menu-right">
-        <text class="menu-badge" wx:if="{{item.badge}}">{{item.badge}}</text>
-        <text class="menu-arrow">›</text>
-      </view>
-    </view>
-  </view>
-
-  <!-- 其他功能 -->
-  <view class="menu-section">
-    <view class="menu-item" wx:for="{{otherItems}}" wx:key="id" bindtap="goToPage" data-id="{{item.id}}">
-      <view class="menu-left">
-        <text class="menu-icon">{{item.icon}}</text>
-        <text class="menu-name">{{item.name}}</text>
-      </view>
-      <text class="menu-arrow">›</text>
-    </view>
-  </view>
 
   <!-- 客服入口 -->
   <view class="service-section">
